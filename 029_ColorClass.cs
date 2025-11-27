@@ -1,3 +1,5 @@
+// Create color class with immutable properties and static predefined colors, then create instances
+
 Color x = new(222, 33, 44);
 Color white = Color.White;
 
