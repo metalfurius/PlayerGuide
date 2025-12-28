@@ -3,42 +3,23 @@
 Console.WriteLine("=== Robot Command Pattern ===");
 Robot robot = new();
 Console.WriteLine($"Robot initial state: ({robot.X}, {robot.Y}) - Powered: {robot.IsPowered})");
-Console.WriteLine("Enter command 1 (On, Off, North, South, East, West): ");
-string? command1 = Console.ReadLine();
-robot.Commands[0] = command1 switch
+
+for (int i = 0; i < robot.Commands.Length; i++)
 {
-    "On" => new OnCommand(),
-    "Off" => new OffCommand(),
-    "North" => new NorthCommand(),
-    "South" => new SouthCommand(),
-    "East" => new EastCommand(),
-    "West" => new WestCommand(),
-    _ => null
-};
-Console.WriteLine("Enter command 2 (On, Off, North, South, East, West): ");
-string? command2 = Console.ReadLine();
-robot.Commands[1] = command2 switch
-{
-    "On" => new OnCommand(),
-    "Off" => new OffCommand(),
-    "North" => new NorthCommand(),
-    "South" => new SouthCommand(),
-    "East" => new EastCommand(),
-    "West" => new WestCommand(),
-    _ => null
-};
-Console.WriteLine("Enter command 3 (On, Off, North, South, East, West): ");
-string? command3 = Console.ReadLine();
-robot.Commands[2] = command3 switch
-{
-    "On" => new OnCommand(),
-    "Off" => new OffCommand(),
-    "North" => new NorthCommand(),
-    "South" => new SouthCommand(),
-    "East" => new EastCommand(),
-    "West" => new WestCommand(),
-    _ => null
-};
+    Console.WriteLine($"Enter command #{i + 1} (on, off, north, south, east, west):");
+    string? input = Console.ReadLine()?.ToLower();
+    robot.Commands[i] = input switch
+    {
+        "on" => new OnCommand(),
+        "off" => new OffCommand(),
+        "north" => new NorthCommand(),
+        "south" => new SouthCommand(),
+        "east" => new EastCommand(),
+        "west" => new WestCommand(),
+        _ => null
+    };
+}
+
 robot.Run();
 
 public class Robot
