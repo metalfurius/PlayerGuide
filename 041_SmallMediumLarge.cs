@@ -132,13 +132,6 @@ public static class ConsoleMethods
         Console.WriteLine(message);
         Console.ForegroundColor = previousColor;
     }
-    public static void Write(string message, ConsoleColor color = ConsoleColor.White)
-    {
-        var previousColor = Console.ForegroundColor;
-        Console.ForegroundColor = color;
-        Console.Write(message);
-        Console.ForegroundColor = previousColor;
-    }
     public static void Clear()
     {
         Console.Clear();
